@@ -11,6 +11,7 @@ Public documentation, compliance standards, and ingest tooling for the [@Dangero
 | Document | Audience | URL |
 |----------|----------|-----|
 | **[Compliance & standards statement](COMPLIANCE-STATEMENT.md)** | Complainants, YouTube, police | `https://github.com/ajlennon/dangerous-ebikers/blob/main/COMPLIANCE-STATEMENT.md` |
+| **[Incident map](https://ajlennon.github.io/dangerous-ebikers/)** | Public map of uploaded incidents | GitHub Pages (auto-deployed on push) |
 | [UK compliance record](UK-COMPLIANCE.md) | Full GDPR/legal operating detail | `https://github.com/ajlennon/dangerous-ebikers/blob/main/UK-COMPLIANCE.md` |
 | [Publication workflow](#publication-workflow-privacy--compliance) | How clips are anonymised before going public | This README |
 
@@ -281,6 +282,22 @@ This project is designed to stay within **UK GDPR** and **YouTube Community Guid
 Full detail: [`COMPLIANCE-STATEMENT.md`](COMPLIANCE-STATEMENT.md) (external) and [`UK-COMPLIANCE.md`](UK-COMPLIANCE.md) (operating record).
 
 **Before scaling:** complete ICO registration self-assessment and sign Appendix A LIA in `UK-COMPLIANCE.md`.
+
+## Incident map (GitHub Pages)
+
+Public map of uploaded incidents: **https://ajlennon.github.io/dangerous-ebikers/**
+
+Built from `*_UPLOAD.json` (YouTube URL required; no video or faces). On each push to `main`, GitHub Actions runs `scripts/build-map-data.py` and deploys `docs/`.
+
+**Local preview:**
+
+```bash
+python3 scripts/build-map-data.py
+python3 -m http.server 8765 --directory docs
+# open http://localhost:8765
+```
+
+**First-time setup:** repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 
 ## Police handover
 

@@ -1,0 +1,139 @@
+:root {
+  --bg: #0f1419;
+  --surface: #1a2332;
+  --text: #e8edf4;
+  --muted: #94a3b8;
+  --accent: #e53e3e;
+  --accent-dim: #742a2a;
+  --border: #2d3748;
+  --link: #63b3ed;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--link);
+}
+
+header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 1.25rem;
+}
+
+header h1 {
+  margin: 0 0 0.25rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+header .tagline {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+header nav {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+}
+
+#map {
+  width: 100%;
+  height: min(62vh, 520px);
+  min-height: 320px;
+  border-bottom: 1px solid var(--border);
+}
+
+.map-meta {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+main {
+  max-width: 720px;
+  padding: 1.25rem;
+}
+
+main h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+main p {
+  margin: 0 0 0.75rem;
+  color: var(--muted);
+  font-size: 0.925rem;
+}
+
+main ul {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  color: var(--muted);
+  font-size: 0.925rem;
+}
+
+footer {
+  padding: 1rem 1.25rem 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+footer a {
+  color: var(--muted);
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 6px;
+}
+
+.popup-title {
+  margin: 0 0 0.35rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+.popup-time {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+.popup-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+}
+
+.popup-links a {
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  header,
+  .map-meta,
+  main,
+  footer {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}

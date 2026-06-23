@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dangerous eBikers — incident map</title>
+  <meta name="description" content="Map of documented pavement e-bike incidents in the UK. Awareness, evidence, and road safety.">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Dangerous eBikers</h1>
+    <p class="tagline">Awareness · Evidence · Change</p>
+    <nav>
+      <a href="https://www.youtube.com/@Dangerous-eBikers" target="_blank" rel="noopener">YouTube channel</a>
+      <a href="https://github.com/ajlennon/dangerous-ebikers/blob/main/COMPLIANCE-STATEMENT.md" target="_blank" rel="noopener">Compliance statement</a>
+      <a href="https://github.com/ajlennon/dangerous-ebikers" target="_blank" rel="noopener">Project on GitHub</a>
+      <a href="mailto:ajlennon@gmail.com">Privacy / takedown</a>
+    </nav>
+  </header>
+
+  <div id="map" role="application" aria-label="Incident map"></div>
+  <p class="map-meta" id="incident-count">Loading incidents…</p>
+
+  <main>
+    <h2>About this map</h2>
+    <p>
+      Each pin is a timestamped pavement e-bike incident documented in the UK.
+      Clips are anonymised (faces blurred) before publication on YouTube.
+      Original footage is retained privately and may be shared with police when reported via 101.
+    </p>
+    <p>Only incidents with a published YouTube video appear here. Pins show approximate incident location from device GPS at time of recording — not home addresses.</p>
+    <ul>
+      <li>Factual evidence only — no naming or shaming</li>
+      <li>Report danger: <strong>999</strong> · Non-emergency: <strong>101</strong></li>
+      <li>This map does not replace a formal police report</li>
+    </ul>
+    <p>
+      <a href="https://github.com/ajlennon/dangerous-ebikers/blob/main/COMPLIANCE-STATEMENT.md">Read our compliance &amp; standards statement</a>
+      — we welcome constructive feedback on legal and platform compliance.
+    </p>
+  </main>
+
+  <footer>
+    Map data from anonymised incident logs.
+    © OpenStreetMap contributors.
+    <a href="https://www.openstreetmap.org/copyright">OpenStreetMap copyright</a>.
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="js/map.js"></script>
+</body>
+</html>
