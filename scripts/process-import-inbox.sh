@@ -3,7 +3,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-CONF="${DEB_IMPORT_CONF:-$ROOT/config/import-inbox.conf}"
+CONF="${RRUK_IMPORT_CONF:-${DEB_IMPORT_CONF:-$ROOT/config/import-inbox.conf}}"
 LOG="$ROOT/register/import-inbox.log"
 
 if [[ -f "$CONF" ]]; then
@@ -11,7 +11,7 @@ if [[ -f "$CONF" ]]; then
   source "$CONF"
 fi
 
-IMPORT_INBOX="${IMPORT_INBOX:-/home/ajlennon/LocalSend/bike-imports}"
+IMPORT_INBOX="${IMPORT_INBOX:-/home/ajlennon/LocalSend/rides-imports}"
 IMPORT_NOTES="${IMPORT_NOTES:-auto-import from glasses inbox}"
 AUTO_YOUTUBE_UPLOAD="${AUTO_YOUTUBE_UPLOAD:-true}"
 DONE_DIR="$IMPORT_INBOX/done"
@@ -99,5 +99,5 @@ done
 "$UPLOAD_PENDING" || true
 
 if [[ "$found" -eq 0 ]]; then
-  [[ "${DEB_IMPORT_VERBOSE:-0}" == 1 ]] && log "import inbox empty: $IMPORT_INBOX"
+  [[ "${RRUK_IMPORT_VERBOSE:-${DEB_IMPORT_VERBOSE:-0}}" == 1 ]] && log "import inbox empty: $IMPORT_INBOX"
 fi

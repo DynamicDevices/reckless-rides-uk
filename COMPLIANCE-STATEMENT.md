@@ -2,10 +2,10 @@
 
 **Document purpose:** This statement is provided to **complainants**, **online platforms** (including YouTube), and **law enforcement** to explain how the Reckless Rides UK project is operated, the legal and platform obligations we have considered, and the controls we apply before any clip is made publicly visible.
 
-**Channel:** [@RecklessRidesUK](https://www.youtube.com/@RecklessRidesUK) *(update in YouTube Studio when handle is changed; legacy handle may still be @Dangerous-eBikers until then)*  
+**Channel:** [@Reckless-Rides-UK](https://www.youtube.com/@Reckless-Rides-UK)  
 **Public site:** [recklessrides.uk](https://recklessrides.uk)  
 **Public document:** [github.com/ajlennon/reckless-rides-uk/blob/main/COMPLIANCE-STATEMENT.md](https://github.com/ajlennon/reckless-rides-uk/blob/main/COMPLIANCE-STATEMENT.md)  
-**Version:** 1.3  
+**Version:** 1.4  
 **Last updated:** 23 June 2026  
 **Jurisdiction:** England & Wales, United Kingdom
 
@@ -42,7 +42,7 @@ Detailed operating procedures: [UK compliance record](UK-COMPLIANCE.md) and [pub
 
 ## 3. Platform terms (YouTube)
 
-We operate on YouTube as [@RecklessRidesUK](https://www.youtube.com/@RecklessRidesUK) and aim to comply with:
+We operate on YouTube as [@Reckless-Rides-UK](https://www.youtube.com/@Reckless-Rides-UK) and aim to comply with:
 
 - [YouTube Terms of Service](https://www.youtube.com/t/terms)
 - [YouTube Community Guidelines](https://www.youtube.com/howyoutubeworks/policies/community-guidelines/)
@@ -143,7 +143,7 @@ If feedback reveals a systemic gap, we will update our internal compliance docum
 | Purpose | Contact |
 |---------|---------|
 | **Privacy, takedown, correction, data rights** | [ajlennon@gmail.com](mailto:ajlennon@gmail.com) |
-| **YouTube channel** | [@RecklessRidesUK](https://www.youtube.com/@RecklessRidesUK) |
+| **YouTube channel** | [@Reckless-Rides-UK](https://www.youtube.com/@Reckless-Rides-UK) |
 | **Incident map** | [recklessrides.uk](https://recklessrides.uk) |
 
 Please include: URL of the video (if any), date/time/location if known, and the nature of your request. This helps us respond accurately.

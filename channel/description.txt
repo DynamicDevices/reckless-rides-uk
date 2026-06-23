@@ -1,18 +1,22 @@
 Welcome to Reckless Rides UK
 
-Pavement & road — illegal footway riding and dangerous cycling in the UK (delivery bikes, normal bikes, young riders). Timestamped evidence for safer streets — not naming, shaming, or harassing riders.
+Nationwide UK evidence project — dangerous and illegal cycling wherever incidents are captured (pavement, footpath, road). Timestamped, anonymised evidence — not naming, shaming, or harassing riders.
 
-Awareness • Evidence • Change
+Awareness · Evidence · Change
 
-PRIVACY & FOOTAGE
-• Originals kept private; published clips are anonymised (faces blurred, metadata stripped)
-• Uploads are private until reviewed, then made public
-• Removal requests: ajlennon@gmail.com
+WHAT YOU'LL SEE
+• Clips from public streets (Ray-Ban Meta)
+• Faces blurred; metadata stripped from uploads
+• Factual incident logs with time and location
+• Reviewed before public release
 
-COMPLIANCE (public)
-https://github.com/ajlennon/reckless-rides-uk/blob/main/COMPLIANCE-STATEMENT.md
-Incident map: https://recklessrides.uk
-We welcome feedback on legal and platform compliance.
+FIND US
+• YouTube: youtube.com/@Reckless-Rides-UK
+• Incident map: https://recklessrides.uk
+• Compliance: https://github.com/ajlennon/reckless-rides-uk/blob/main/COMPLIANCE-STATEMENT.md
+• Privacy / takedown: ajlennon@gmail.com
+
+Constructive feedback on compliance welcome.
 
 GUIDELINES
 • Factual evidence only — no doxxing or abuse

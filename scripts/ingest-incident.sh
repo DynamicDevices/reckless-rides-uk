@@ -202,7 +202,7 @@ PY
 ROOT="$ROOT" META_JSON="$META_JSON" NOTES="$NOTES" python3 - "$UPLOAD_META_PATH" "$NEXT_ID" "$BASE" \
   "$UTC_RECORDED" "$BST_RECORDED" "$LAT" "$LON" "$LAT_TAG" "$LON_TAG" \
   "$PUB_PATH" "$PROC_PATH" <<'PY'
-import json, os, sys
+import json, os, subprocess, sys
 from pathlib import Path
 
 root = Path(os.environ["ROOT"])
@@ -212,91 +212,29 @@ meta = json.loads(os.environ["META_JSON"])
     utc_recorded, bst_recorded, lat, lon, lat_tag, lon_tag,
     pub_path, proc_path,
 ) = sys.argv[1:]
-
-def read_channel(name: str) -> str:
-    p = root / "channel" / name
-    return p.read_text().strip() if p.is_file() else ""
-
-default_tags = [t.strip() for t in read_channel("upload-tags.txt").split(",") if t.strip()]
-footer = read_channel("video-description-footer.txt")
-
-map_url = ""
-if lat and lon:
-    lon_map = lon if str(lon).startswith("-") or not lon_tag.endswith("W") else f"-{lon.lstrip('-')}"
-    map_url = f"https://www.google.com/maps?q={lat},{lon_map}"
-
-def rel_path(p):
-    p = Path(p).resolve()
-    try:
-        return str(p.relative_to(root.resolve()))
-    except ValueError:
-        return str(p)
-bst_short = bst_recorded or utc_recorded
-title = f"Cycling incident — {bst_short}" if bst_recorded else f"Cycling incident — {utc_recorded}"
-
-description_parts = [
-    "Incident log (evidence archive)",
-    "",
-    f"Recorded: {utc_recorded}" + (f" ({bst_recorded})" if bst_recorded else ""),
-]
-if lat and lon:
-    lat_disp = lat_tag[:-1] if lat_tag else lat
-    lon_disp = lon_tag[:-1] if lon_tag else str(abs(float(lon)))
-    hem_lat = lat_tag[-1] if lat_tag else "N"
-    hem_lon = lon_tag[-1] if lon_tag else ("W" if float(lon) < 0 else "E")
-    description_parts += [
-        f"GPS: {lat_disp}°{hem_lat}, {lon_disp}°{hem_lon}",
-        f"Map: {map_url}",
-    ]
-if meta.get("device"):
-    description_parts.append(f"Device: {meta['device']}")
-if os.environ.get("NOTES"):
-    description_parts += ["", f"Notes: {os.environ['NOTES']}"]
-description_parts += [
-    "",
-    "Police report: [pending]",
-    "",
-    footer,
-]
-description = "\n".join(description_parts)
-
-upload = {
-    "schema": "dangerous-ebikers-youtube-upload/v1",
-    "incident_id": incident_id,
-    "base_name": base_name,
-    "files": {
-        "upload_video": rel_path(pub_path),
-        "processed_video": rel_path(proc_path),
-    },
-    "youtube": {
-        "title": title,
-        "description": description,
-        "tags": default_tags,
-        "privacy": "private",
-        "privacy_after_review": "public",
-        "categoryId": "22",
-        "madeForKids": False,
-        "playlist": "2026 Incidents",
-        "video_id": "",
-        "url": "",
-        "studio_url": "",
-        "uploaded_utc": "",
-        "privacy_at_upload": "",
-    },
-    "incident": {
-        "recorded_utc": utc_recorded,
-        "recorded_bst": bst_recorded,
-        "latitude": lat,
-        "longitude": lon_map if lon_map else lon,
-        "location_label": f"{lat_tag}_{lon_tag}",
-        "map_url": map_url,
-        "device": meta.get("device", ""),
-    },
-    "police_ref": "",
-    "youtube_url": "",
-    "notes": os.environ.get("NOTES", ""),
-}
-Path(upload_path).write_text(json.dumps(upload, indent=2) + "\n")
+device = meta.get("device", "")
+notes = os.environ.get("NOTES", "")
+subprocess.run(
+    [
+        sys.executable,
+        str(root / "scripts" / "upload_metadata.py"),
+        "write",
+        upload_path,
+        incident_id,
+        base_name,
+        utc_recorded,
+        bst_recorded,
+        lat,
+        lon,
+        lat_tag,
+        lon_tag,
+        pub_path,
+        proc_path,
+        device,
+        notes,
+    ],
+    check=True,
+)
 PY
 
 NOTES_CSV="$(printf '%s' "$NOTES" | tr '\n' ' ' | sed 's/"/""/g')"

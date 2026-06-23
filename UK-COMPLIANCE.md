@@ -3,7 +3,7 @@
 **Status:** living operational document  
 **Last reviewed:** 2026-06-23  
 **Jurisdiction:** England & Wales (default — confirm if operating elsewhere in the UK)  
-**Channel:** [@RecklessRidesUK](https://www.youtube.com/@RecklessRidesUK) *(update handle in YouTube Studio; legacy @Dangerous-eBikers until changed)*  
+**Channel:** [@Reckless-Rides-UK](https://www.youtube.com/@Reckless-Rides-UK)  
 **Public site:** [recklessrides.uk](https://recklessrides.uk)
 
 ---
@@ -377,6 +377,8 @@ High vulnerability — solid-box blur or withhold publication if any doubt.
 
 | Date | Change | Author |
 |------|--------|--------|
+| 2026-06-23 | v1.0 release: nationwide scope, @Reckless-Rides-UK, upload branding pipeline, rides-imports watcher, channel art | — |
+| 2026-06-23 | YouTube handle set to @Reckless-Rides-UK | — |
 | 2026-06-23 | Documentation refresh: README quick links, auto-pipeline workflow, map/DNS status, pre-commit layout; compliance v1.3 incident map | — |
 | 2026-06-23 | Comprehensive review: 16:9 letterbox, map URL fix, YouTube policy section, upload automation, takedown template | — |
 | 2026-06-23 | Rebrand to Reckless Rides UK; scope broadened to pavement and road dangerous cycling; recklessrides.uk custom domain | — |

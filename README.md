@@ -1,8 +1,8 @@
 # Reckless Rides UK
 
-Public documentation, compliance standards, and ingest tooling for the [@RecklessRidesUK](https://www.youtube.com/@RecklessRidesUK) YouTube channel — timestamped evidence of dangerous and illegal cycling in the UK: pavement and footpath riding, reckless road cycling, delivery bikes, and similar behaviour.
+Nationwide UK evidence project — public documentation, compliance standards, and ingest tooling for the [@Reckless-Rides-UK](https://www.youtube.com/@Reckless-Rides-UK) YouTube channel. Timestamped evidence of dangerous and illegal cycling wherever incidents are captured: pavement, footpath, and road.
 
-**Pavement & road — illegal footway riding and dangerous cycling in the UK** · **Awareness · Evidence · Change**
+**Nationwide UK · Awareness · Evidence · Change**
 
 | | |
 |---|---|
@@ -38,7 +38,7 @@ Mandatory path from capture to upload. **Never skip the manual gates.** Full leg
 flowchart TD
     subgraph capture ["1 · Capture"]
         A["Record in public<br/>(Ray-Ban Meta glasses)"]
-        B["LocalSend → bike-imports/<br/>or manual path"]
+        B["LocalSend → rides-imports/<br/>or manual path"]
     end
 
     subgraph auto ["Optional: import watcher"]
@@ -122,8 +122,8 @@ flowchart TD
 
 ```
 reckless-rides-uk/
-  branding/              Channel art and watermark (safe to keep in git)
-  channel/               Copy-paste text for YouTube Studio
+  branding/              Channel art and watermark (YouTube-sized PNGs)
+  channel/               Copy-paste text for YouTube Studio + upload templates
   config/                import-inbox.conf, OAuth secrets (gitignored; see .example)
   docs/                  GitHub Pages site + incident map (Leaflet + GeoJSON)
   .github/workflows/     Pages CI (build map, deploy docs/)
@@ -143,6 +143,7 @@ reckless-rides-uk/
     upload-pending-incidents.sh     Upload ingested clips missing a YouTube URL
     install-import-watcher.sh       Enable import watcher service
     regenerate-upload-metadata.sh   Rebuild *_UPLOAD.json from manifest
+    upload_metadata.py              Channel templates → YouTube metadata builder
     upload-incident.sh              Upload *_PUBLISH.mp4 via YouTube API
     youtube-upload.py               Upload implementation
     build-map-data.py               *_UPLOAD.json → docs/data/incidents.geojson
@@ -208,10 +209,10 @@ This will:
 Copy clips from Ray-Ban Meta glasses via LocalSend into:
 
 ```
-/home/ajlennon/LocalSend/bike-imports/
+/home/ajlennon/LocalSend/rides-imports/
 ```
 
-New `.MOV` / `.mp4` files are **auto-ingested** (face blur, register, manifest). After ingest the source moves to `bike-imports/done/` and **`PUBLISH.mp4` is uploaded to YouTube as private** automatically.
+New `.MOV` / `.mp4` files are **auto-ingested** (face blur, register, manifest). After ingest the source moves to `rides-imports/done/` and **`PUBLISH.mp4` is uploaded to YouTube as private** automatically.
 
 You still review on YouTube Studio and set **public** manually when ready. Nothing uploads as public without `--confirm-public-bypass`.
 
@@ -221,7 +222,7 @@ You still review on YouTube Studio and set **public** manually when ready. Nothi
 ./scripts/install-import-watcher.sh
 ```
 
-This enables a user systemd service that polls the inbox every 10 seconds. Processed sources move to `bike-imports/done/`; failures go to `bike-imports/failed/`.
+This enables a user systemd service that polls the inbox every 10 seconds. Processed sources move to `rides-imports/done/`; failures go to `rides-imports/failed/`.
 
 **Manual one-shot** (without the watcher):
 
@@ -232,7 +233,7 @@ This enables a user systemd service that polls the inbox every 10 seconds. Proce
 **Status / logs:**
 
 ```bash
-systemctl --user status debike-import-watcher.service
+systemctl --user status reckless-rides-import-watcher.service
 tail -f register/import-inbox.log
 ```
 
@@ -254,7 +255,7 @@ Config: copy `config/import-inbox.conf.example` → `config/import-inbox.conf` t
 4. Save as `config/client_secret.json` (see `config/client_secret.json.example`)
 5. First upload opens a browser to authorise; token saved to `config/youtube-token.json` (gitignored)
 
-Create playlist **`2026 Incidents`** in YouTube Studio once (script adds videos to it by name).
+Create playlist **`Reckless Rides UK 2026`** in YouTube Studio once (script adds videos to it by name; name from `channel/upload-playlist.txt`).
 
 **After ingest + review of `*_PROCESSED.mp4`:**
 
@@ -275,6 +276,8 @@ Regenerate upload metadata after editing channel templates:
 ```bash
 ./scripts/regenerate-upload-metadata.sh DEB-20260623T080303Z_53.4092N_2.9778W_001
 ```
+
+Templates live in `channel/` — `upload-title-template.txt`, `video-description-header.txt`, `video-description-footer.txt`, `upload-tags.txt`, `upload-playlist.txt`.
 
 ### Fix Shorts / wrong aspect ratio
 
@@ -404,6 +407,16 @@ zip -j "evidence/export/${INC}_police_bundle.zip" \
 ## Channel copy
 
 Studio text lives in `channel/` — `description.txt`, `guidelines.txt`, `upload-tags.txt`, etc.
+
+Upload metadata templates: `upload-title-template.txt`, `video-description-header.txt`, `video-description-footer.txt`, `upload-playlist.txt`.
+
+## Branding (YouTube Studio)
+
+| Asset | File |
+|-------|------|
+| Profile picture (800×800) | `branding/reckless-rides-channel-icon-800x800.png` |
+| Banner (2560×1440) | `branding/reckless-rides-channel-banner-2560x1440.png` |
+| Video watermark (150×150) | `branding/reckless-rides-watermark-150x150.png` |
 
 ## Privacy & UK compliance
 

@@ -3,7 +3,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-CONF="${DEB_IMPORT_CONF:-$ROOT/config/import-inbox.conf}"
+CONF="${RRUK_IMPORT_CONF:-${DEB_IMPORT_CONF:-$ROOT/config/import-inbox.conf}}"
 LOG="$ROOT/register/import-inbox.log"
 
 if [[ -f "$CONF" ]]; then
@@ -64,7 +64,7 @@ PY
 
 main() {
   if [[ "$AUTO_YOUTUBE_UPLOAD" != true && "$AUTO_YOUTUBE_UPLOAD" != 1 && "$AUTO_YOUTUBE_UPLOAD" != yes ]]; then
-    [[ "${DEB_IMPORT_VERBOSE:-0}" == 1 ]] && log "youtube auto-upload disabled (AUTO_YOUTUBE_UPLOAD=$AUTO_YOUTUBE_UPLOAD)"
+    [[ "${RRUK_IMPORT_VERBOSE:-${DEB_IMPORT_VERBOSE:-0}}" == 1 ]] && log "youtube auto-upload disabled (AUTO_YOUTUBE_UPLOAD=$AUTO_YOUTUBE_UPLOAD)"
     return 0
   fi
 

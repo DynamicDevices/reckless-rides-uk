@@ -1,7 +1,7 @@
 (function () {
   const DATA_URL = "data/incidents.geojson";
-  const DEFAULT_CENTER = [53.409, -2.978];
-  const DEFAULT_ZOOM = 13;
+  const DEFAULT_CENTER = [54.5, -3.5];
+  const DEFAULT_ZOOM = 6;
 
   const map = L.map("map", { scrollWheelZoom: true }).setView(DEFAULT_CENTER, DEFAULT_ZOOM);
 
@@ -18,7 +18,7 @@
   }
 
   function popupHtml(props) {
-    const title = escapeHtml(props.title || "Cycling incident");
+    const title = escapeHtml(props.title || "Incident");
     const when = escapeHtml(props.recorded_bst || props.recorded_utc || "");
     const yt = props.youtube_url
       ? `<a href="${escapeHtml(props.youtube_url)}" target="_blank" rel="noopener">Watch on YouTube</a>`

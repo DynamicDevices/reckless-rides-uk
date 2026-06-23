@@ -3,7 +3,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-CONF="${DEB_IMPORT_CONF:-$ROOT/config/import-inbox.conf}"
+CONF="${RRUK_IMPORT_CONF:-${DEB_IMPORT_CONF:-$ROOT/config/import-inbox.conf}}"
 
 if [[ -f "$CONF" ]]; then
   # shellcheck source=/dev/null
@@ -11,7 +11,7 @@ if [[ -f "$CONF" ]]; then
 fi
 
 POLL_SECONDS="${POLL_SECONDS:-10}"
-IMPORT_INBOX="${IMPORT_INBOX:-/home/ajlennon/LocalSend/bike-imports}"
+IMPORT_INBOX="${IMPORT_INBOX:-/home/ajlennon/LocalSend/rides-imports}"
 
 mkdir -p "$IMPORT_INBOX" "$IMPORT_INBOX/done" "$IMPORT_INBOX/failed"
 
