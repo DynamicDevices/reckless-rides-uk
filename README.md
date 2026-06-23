@@ -297,14 +297,32 @@ Built from `*_UPLOAD.json` (YouTube URL required; no video or faces). On each pu
 
 ### Custom domain (recklessrides.uk)
 
-`docs/CNAME` contains `recklessrides.uk`. At your DNS provider:
+`docs/CNAME` contains `recklessrides.uk`. Nameservers: Cloudflare (`brit.ns.cloudflare.com`, `jihoon.ns.cloudflare.com`).
 
-| Type | Name | Value |
-|------|------|-------|
-| **A** | `@` | `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` |
-| **CNAME** | `www` | `ajlennon.github.io` *(optional — apex via A records above)* |
+**Cloudflare DNS** (Dashboard → **DNS** → **Records**). Set every record below to **DNS only** (grey cloud, **not** proxied) — Cloudflare proxy breaks GitHub Pages TLS.
 
-After DNS propagates: repo **Settings → Pages → Custom domain** → enter `recklessrides.uk` → **Enforce HTTPS**.
+| Type | Name | Content | Proxy |
+|------|------|---------|-------|
+| **A** | `@` | `185.199.108.153` | DNS only |
+| **A** | `@` | `185.199.109.153` | DNS only |
+| **A** | `@` | `185.199.110.153` | DNS only |
+| **A** | `@` | `185.199.111.153` | DNS only |
+| **CNAME** | `www` | `ajlennon.github.io` | DNS only |
+
+Optional IPv6: four **AAAA** `@` records to `2606:50c0:8000::153` … `2606:50c0:8003::153` (also DNS only). Apex **CNAME** to `ajlennon.github.io` works on Cloudflare via CNAME flattening, but four **A** records match GitHub’s documented setup.
+
+**Verify DNS** (after propagation, up to 24 h):
+
+```bash
+dig recklessrides.uk +noall +answer -t A
+dig www.recklessrides.uk +noall +answer -t CNAME
+```
+
+**GitHub Pages** (already set: custom domain `recklessrides.uk`, build via Actions):
+
+1. Wait until DNS checks pass in repo **Settings → Pages → Custom domain**.
+2. Enable **Enforce HTTPS** (checkbox appears only after GitHub can issue a certificate).
+3. Confirm **https://recklessrides.uk/** and **https://www.recklessrides.uk/** (www redirects per GitHub apex + www rules).
 
 **Local preview:**
 
