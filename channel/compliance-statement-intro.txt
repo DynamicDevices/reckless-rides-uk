@@ -1,4 +1,4 @@
-Compliance & standards (public): https://github.com/ajlennon/dangerous-ebikers/blob/main/COMPLIANCE-STATEMENT.md
+Compliance & standards (public): https://github.com/ajlennon/reckless-rides-uk/blob/main/COMPLIANCE-STATEMENT.md
 Incident map: https://recklessrides.uk
 
 Privacy / takedown / feedback: ajlennon@gmail.com — we welcome constructive input on legal and platform compliance.

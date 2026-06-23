@@ -4,7 +4,7 @@
 
 **Channel:** [@RecklessRidesUK](https://www.youtube.com/@RecklessRidesUK) *(update in YouTube Studio when handle is changed; legacy handle may still be @Dangerous-eBikers until then)*  
 **Public site:** [recklessrides.uk](https://recklessrides.uk)  
-**Public document:** [github.com/ajlennon/dangerous-ebikers/blob/main/COMPLIANCE-STATEMENT.md](https://github.com/ajlennon/dangerous-ebikers/blob/main/COMPLIANCE-STATEMENT.md) *(repository may be renamed separately)*  
+**Public document:** [github.com/ajlennon/reckless-rides-uk/blob/main/COMPLIANCE-STATEMENT.md](https://github.com/ajlennon/reckless-rides-uk/blob/main/COMPLIANCE-STATEMENT.md)  
 **Version:** 1.2  
 **Last updated:** 23 June 2026  
 **Jurisdiction:** England & Wales, United Kingdom

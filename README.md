@@ -6,7 +6,7 @@ Public documentation, compliance standards, and ingest tooling for the [@Reckles
 
 **Video evidence is never stored in this repository** (see `.gitignore`). `*_UPLOAD.json` metadata (titles, descriptions, tags, YouTube URLs — no faces or video) **is** tracked for transparency.
 
-> **Repository name:** This repo is still `dangerous-ebikers` on GitHub. You may rename it to `reckless-rides-uk` separately; update links if you do. Incident IDs keep the **DEB-** prefix.
+> **Repository:** [github.com/ajlennon/reckless-rides-uk](https://github.com/ajlennon/reckless-rides-uk). Incident IDs keep the **DEB-** prefix.
 
 ## Compliance & standards (public)
 
@@ -14,9 +14,9 @@ Public documentation, compliance standards, and ingest tooling for the [@Reckles
 
 | Document | Audience | URL |
 |----------|----------|-----|
-| **[Compliance & standards statement](COMPLIANCE-STATEMENT.md)** | Complainants, YouTube, police | `https://github.com/ajlennon/dangerous-ebikers/blob/main/COMPLIANCE-STATEMENT.md` |
+| **[Compliance & standards statement](COMPLIANCE-STATEMENT.md)** | Complainants, YouTube, police | `https://github.com/ajlennon/reckless-rides-uk/blob/main/COMPLIANCE-STATEMENT.md` |
 | **[Incident map](https://recklessrides.uk/)** | Public map of uploaded incidents | [recklessrides.uk](https://recklessrides.uk) (GitHub Pages + custom domain) |
-| [UK compliance record](UK-COMPLIANCE.md) | Full GDPR/legal operating detail | `https://github.com/ajlennon/dangerous-ebikers/blob/main/UK-COMPLIANCE.md` |
+| [UK compliance record](UK-COMPLIANCE.md) | Full GDPR/legal operating detail | `https://github.com/ajlennon/reckless-rides-uk/blob/main/UK-COMPLIANCE.md` |
 | [Publication workflow](#publication-workflow-privacy--compliance) | How clips are anonymised before going public | This README |
 
 **Privacy / takedown / feedback:** [ajlennon@gmail.com](mailto:ajlennon@gmail.com)
@@ -107,7 +107,7 @@ flowchart TD
 ## Layout
 
 ```
-dangerous-ebikers/
+reckless-rides-uk/
   branding/              Channel art and watermark (safe to keep in git)
   channel/               Copy-paste text for YouTube Studio
   evidence/
@@ -289,7 +289,7 @@ Full detail: [`COMPLIANCE-STATEMENT.md`](COMPLIANCE-STATEMENT.md) (external) and
 
 ## Incident map (GitHub Pages)
 
-Public map of uploaded incidents: **https://recklessrides.uk/** (canonical) · also **https://ajlennon.github.io/dangerous-ebikers/** until DNS propagates
+Public map of uploaded incidents: **https://recklessrides.uk/** (canonical) · also **https://ajlennon.github.io/reckless-rides-uk/**
 
 Built from `*_UPLOAD.json` (YouTube URL required; no video or faces). On each push to `main`, GitHub Actions runs `scripts/build-map-data.py` and deploys `docs/`.
 
@@ -305,10 +305,6 @@ Built from `*_UPLOAD.json` (YouTube URL required; no video or faces). On each pu
 | **CNAME** | `www` | `ajlennon.github.io` *(optional — apex via A records above)* |
 
 After DNS propagates: repo **Settings → Pages → Custom domain** → enter `recklessrides.uk` → **Enforce HTTPS**.
-
-### Optional GitHub repo rename
-
-To rename `ajlennon/dangerous-ebikers` → `ajlennon/reckless-rides-uk`: **Settings → General → Repository name**. GitHub redirects old URLs; update hard-coded links in channel copy and compliance docs if needed. The **DEB-** incident prefix and systemd unit name (`debike-import-watcher`) are unchanged.
 
 **Local preview:**
 
