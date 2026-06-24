@@ -179,8 +179,6 @@ pip install -e "./core[dev]"
 probe-media /path/to/video.MOV
 ```
 
-Other products (e.g. private [personal-safety-app](https://github.com/DynamicDevices/personal-safety-app)) use the same core with different prefixes and no public map. See [evidence-core README](https://github.com/DynamicDevices/evidence-core#product-integration).
-
 ## Filename convention
 
 Each incident gets a sequential ID and consistent prefix:
